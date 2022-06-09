@@ -3,12 +3,12 @@ locals {
 }
 
 resource "azurerm_resource_group" "rg" {
-  name = "<USERNAME>resources"
+  name = "desinoleresources"
   location = local.location
 }
 
 resource "azurerm_log_analytics_workspace" "laws" {
-  name                = "<USERNAME>law"
+  name                = "desinolelaw"
   location            = local.location
   resource_group_name = azurerm_resource_group.rg.name
   sku                 = "PerGB2018"
@@ -16,7 +16,7 @@ resource "azurerm_log_analytics_workspace" "laws" {
 }
 
 resource "azapi_resource" "container_app_environment" {
-  name = "<USERNAME>environment"  
+  name = "desinoleenvironment"  
   location = local.location
   parent_id = azurerm_resource_group.rg.id
   type = "Microsoft.App/managedEnvironments@2022-01-01-preview"
@@ -34,7 +34,7 @@ resource "azapi_resource" "container_app_environment" {
 }
 
 resource "azapi_resource" "container_app" {
-  name = "<USERNAME>app"  
+  name = "desinoleapp"  
   location = local.location
   parent_id = azurerm_resource_group.rg.id
   type = "Microsoft.App/containerApps@2022-01-01-preview"
@@ -51,7 +51,7 @@ resource "azapi_resource" "container_app" {
         containers = [
           {
             image = "ghcr.io/<ORG>/<REPO>:<TAG>"
-            name = "<USERNAME>container"
+            name = "desinolecontainer"
           }
         ]
       }
