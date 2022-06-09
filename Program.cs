@@ -38,6 +38,7 @@ app.MapGet("/docker", () => ascii("docker"));
 app.MapGet("/k8s", () => ascii("k8s")); 
 app.MapGet("/helm", () => ascii("helm")); 
 app.MapGet("/tux", () => ascii("tux"));
+app.MapGet("/blinky", () => ascii("blinky"));
 
 app.Run();
 
