@@ -50,7 +50,7 @@ resource "azapi_resource" "container_app" {
       template = {
         containers = [
           {
-            image = "ghcr.io/<ORG>/<REPO>:<TAG>"
+            image = "ghcr.io/boxboat-codespaces/dkoch-workshop:latest"
             name = "desinolecontainer"
           }
         ]
